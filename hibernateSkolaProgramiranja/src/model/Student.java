@@ -1,5 +1,9 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.ElementCollection;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Enumerated;
@@ -20,6 +24,8 @@ public class Student {
 	private Adresa adresa;
 	@Enumerated
 	private Finansije finansije;
+	@ElementCollection
+	private List<Contact> contact = new ArrayList<Contact>();
 	
 	public int getIdStudent() {
 		return idStudent;
@@ -56,6 +62,12 @@ public class Student {
 	}
 	public void setFinansije(Finansije finansije) {
 		this.finansije = finansije;
+	}
+	public List<Contact> getContact() {
+		return contact;
+	}
+	public void setContact(List<Contact> contact) {
+		this.contact = contact;
 	}
 
 

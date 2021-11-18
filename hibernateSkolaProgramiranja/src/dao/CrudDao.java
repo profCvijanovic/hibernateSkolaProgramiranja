@@ -1,10 +1,13 @@
 package dao;
 
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 import model.Adresa;
+import model.Contact;
 import model.Finansije;
 import model.Smer;
 import model.Student;
@@ -104,21 +107,15 @@ public class CrudDao {
 	
 	
 	public void insertStudent(String imeStudenta, String prezimeStudenta, String brojIndexa, 
-			String drzava, String grad, String ulica, String postanskiBroj, Finansije finansije) {
+			Adresa adresa, Finansije finansije, List<Contact> kontakti) {
 		
 	Student student = new Student();
 		student.setIme(imeStudenta);
 		student.setPrezime(prezimeStudenta);
 		student.setBrojIndexa(brojIndexa);
-		student.setFinansije(finansije);
-	
-	Adresa adresa = new Adresa();
-		adresa.setDrzava(drzava);
-		adresa.setGrad(grad);
-		adresa.setUlica(ulica);
-		adresa.setPostanskiBroj(postanskiBroj);
-	
-	student.setAdresa(adresa);
+		student.setFinansije(finansije);	
+		student.setAdresa(adresa);
+		student.setContact(kontakti);
 		// otvaranje sesije
 		Session sesija = factory.openSession();
 			sesija.beginTransaction();
@@ -159,6 +156,7 @@ public class CrudDao {
 				sesija.close();
 			}
 	}
+	
 	
 	
 	
