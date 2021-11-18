@@ -2,6 +2,7 @@ package dao;
 
 import java.util.List;
 
+import org.hibernate.Hibernate;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -147,6 +148,7 @@ public class CrudDao {
 			try {
 				// select * from student where idStudent = id;
 				student = sesija.get(Student.class, id);
+				//Hibernate.initialize(student.getContact());
 				sesija.getTransaction().commit();
 				return student;
 			} catch (Exception e) {
