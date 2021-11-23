@@ -30,6 +30,8 @@
 		<!-- Names the annotated entity class -->
 		<mapping class="model.Smer"/>
 		<mapping class="model.Student"/>
+		<mapping class="model.SmerDetails"/>
+		<mapping class="model.Predmet"/>
 
 	</session-factory>
 </hibernate-configuration>

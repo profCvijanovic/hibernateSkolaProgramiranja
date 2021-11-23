@@ -11,6 +11,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Student {
@@ -25,8 +26,11 @@ public class Student {
 	private Adresa adresa;
 	@Enumerated
 	private Finansije finansije;
-	@ElementCollection(fetch = FetchType.EAGER)
+	@ElementCollection(fetch = FetchType.LAZY)
 	private List<Contact> contact = new ArrayList<Contact>();
+	@ManyToOne
+	private Smer smer;
+	
 	
 	public int getIdStudent() {
 		return idStudent;
@@ -70,8 +74,14 @@ public class Student {
 	public void setContact(List<Contact> contact) {
 		this.contact = contact;
 	}
+	public Smer getSmer() {
+		return smer;
+	}
+	public void setSmer(Smer smer) {
+		this.smer = smer;
+	}
 
-
+	
 	
 	
 	

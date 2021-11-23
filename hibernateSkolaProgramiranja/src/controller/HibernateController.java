@@ -17,14 +17,8 @@ public class HibernateController {
 		
 		CrudDao dao = new CrudDao();
 		
-		Student student = dao.vratiStudentaPoId(4);
-		System.out.println("Ime: " + student.getIme());
-		System.out.println("Grad: " + student.getAdresa().getGrad());
-		System.out.println("Status: " + student.getFinansije());
-		
-		for(Contact c: student.getContact()) {
-			System.out.println("Mob: " + c.getMobilniTelefon());
-		}
+		//dao.insertSmerDetails(3, "ovo je smer za sve Python kurseve", 95, 140000);
+		dao.spojiStudentaIsmer(2, 1);
 		
 
 	}
