@@ -169,7 +169,6 @@ public class CrudDao {
 		try {
 			Smer smer = sesija.get(Smer.class, idSmer);
 			smer.setDetails(details);
-			sesija.saveOrUpdate(details);
 			sesija.update(smer);
 			
 			System.out.println("Upisan smer details u bazu...");

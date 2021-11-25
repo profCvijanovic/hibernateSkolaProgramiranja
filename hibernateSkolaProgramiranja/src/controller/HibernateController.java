@@ -20,6 +20,7 @@ public class HibernateController {
 		//dao.insertPredmet("Osnovi programiranja", 10);
 		//dao.spojiStudentaIsmer(4, 6);
 		//dao.spojiPredmetIsmer(2, 5);
+		//dao.insertSmerDetails(5, "PHP opis", 20, 70000);
 		
 
 	}

@@ -3,6 +3,7 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -20,7 +21,7 @@ public class Smer {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idSmer;
 	private String nazivSmera;
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL )
 	private SmerDetails details;
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "smer")
 	private List<Student> listaStudenata = new ArrayList<>();
