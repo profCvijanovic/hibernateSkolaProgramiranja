@@ -22,9 +22,9 @@ public class Smer {
 	private String nazivSmera;
 	@OneToOne
 	private SmerDetails details;
-	@OneToMany(fetch = FetchType.LAZY)
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "smer")
 	private List<Student> listaStudenata = new ArrayList<>();
-	@ManyToMany
+	@ManyToMany(mappedBy = "listaSmerova", fetch = FetchType.LAZY)
 	private List<Predmet> listaPredmetaNaSmeru = new ArrayList<Predmet>();
 
 	public int getIdSmer() {

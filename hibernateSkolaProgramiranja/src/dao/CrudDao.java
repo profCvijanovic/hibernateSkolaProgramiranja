@@ -10,6 +10,7 @@ import org.hibernate.cfg.Configuration;
 import model.Adresa;
 import model.Contact;
 import model.Finansije;
+import model.Predmet;
 import model.Smer;
 import model.SmerDetails;
 import model.Student;
@@ -203,6 +204,55 @@ public class CrudDao {
 			sesija.getTransaction().commit();
 		} catch (Exception e) {
 			System.out.println("NISU Povezani student i smer!");
+			sesija.getTransaction().rollback();
+		} finally {
+			sesija.close();
+		}
+	}
+	
+	public void insertPredmet(String nazivPredmeta, int brojPoena) {
+
+		Predmet predmet = new Predmet();
+		predmet.setNazivPredmeta(nazivPredmeta);
+		predmet.setBrojPoena(brojPoena);
+
+		Session sesija = factory.openSession();
+		sesija.beginTransaction();
+
+		try {
+			// radimo insert
+			sesija.persist(predmet);
+			System.out.println("Upisan predmet " + predmet.getNazivPredmeta() + " u bazu...");
+			sesija.getTransaction().commit();
+		} catch (Exception e) {
+			System.out.println("Predmet NIJE upisan u bazu!");
+			sesija.getTransaction().rollback();
+		} finally {
+			sesija.close();
+		}
+	}
+	
+	
+	public void spojiPredmetIsmer(int idPredmet, int idSmer) {
+
+		
+		Session sesija = factory.openSession();
+		sesija.beginTransaction();
+
+		try {
+			
+			Predmet predmet = sesija.get(Predmet.class, idPredmet);
+			Smer smer = sesija.get(Smer.class, idSmer);
+			Hibernate.initialize(predmet.getListaSmerova());
+			
+			predmet.getListaSmerova().add(smer);
+			
+			sesija.saveOrUpdate(predmet);
+			
+			System.out.println("Povezani predmet i smer...");
+			sesija.getTransaction().commit();
+		} catch (Exception e) {
+			System.out.println("NISU Povezani predmet i smer!");
 			sesija.getTransaction().rollback();
 		} finally {
 			sesija.close();

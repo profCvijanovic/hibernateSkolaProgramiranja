@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -16,7 +17,7 @@ public class Predmet {
 	private int idPredmet;
 	private String nazivPredmeta;
 	private int brojPoena;
-	@ManyToMany
+	@ManyToMany(fetch = FetchType.LAZY)
 	private List<Smer> listaSmerova = new ArrayList<>();
 
 	public int getIdPredmet() {

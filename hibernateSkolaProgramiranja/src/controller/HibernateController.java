@@ -17,8 +17,9 @@ public class HibernateController {
 		
 		CrudDao dao = new CrudDao();
 		
-		//dao.insertSmerDetails(3, "ovo je smer za sve Python kurseve", 95, 140000);
-		dao.spojiStudentaIsmer(2, 1);
+		//dao.insertPredmet("Osnovi programiranja", 10);
+		//dao.spojiStudentaIsmer(4, 6);
+		//dao.spojiPredmetIsmer(2, 5);
 		
 
 	}
