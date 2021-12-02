@@ -10,10 +10,13 @@ import org.hibernate.cfg.Configuration;
 import model.Adresa;
 import model.Contact;
 import model.Finansije;
+import model.Predavac;
 import model.Predmet;
+import model.RedovniPredavac;
 import model.Smer;
 import model.SmerDetails;
 import model.Student;
+import model.VanredniPredavac;
 
 public class CrudDao {
 
@@ -252,6 +255,43 @@ public class CrudDao {
 			sesija.getTransaction().commit();
 		} catch (Exception e) {
 			System.out.println("NISU Povezani predmet i smer!");
+			sesija.getTransaction().rollback();
+		} finally {
+			sesija.close();
+		}
+	}
+	
+	
+	
+	public void insertPredavace(String imePredavaca, String prezimePredavaca, 
+			int brojNaucnihRadova, int brojPoslova) {
+
+		Predavac predavac = new Predavac();
+		predavac.setImePredavaca(imePredavaca);
+		predavac.setPrezimePredavaca(prezimePredavaca);
+		
+		RedovniPredavac redovni = new RedovniPredavac();
+		redovni.setImePredavaca("Redovni " + imePredavaca);
+		redovni.setPrezimePredavaca("Redovni " + prezimePredavaca);
+		redovni.setBrojNaucnihRadova(brojNaucnihRadova);
+		
+		VanredniPredavac vanredni = new VanredniPredavac();
+		vanredni.setImePredavaca("VanRedni " + imePredavaca);
+		vanredni.setPrezimePredavaca("VanRedni " +prezimePredavaca);
+		vanredni.setBrojPoslova(brojPoslova);
+
+		Session sesija = factory.openSession();
+		sesija.beginTransaction();
+
+		try {
+			// radimo inserte
+			sesija.save(predavac);
+			sesija.save(redovni);
+			sesija.save(vanredni);
+			System.out.println("Upisani predavaci u bazu...");
+			sesija.getTransaction().commit();
+		} catch (Exception e) {
+			System.out.println("Predavaci NISU upisani u bazu!");
 			sesija.getTransaction().rollback();
 		} finally {
 			sesija.close();

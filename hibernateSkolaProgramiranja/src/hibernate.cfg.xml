@@ -32,6 +32,9 @@
 		<mapping class="model.Student"/>
 		<mapping class="model.SmerDetails"/>
 		<mapping class="model.Predmet"/>
+		<mapping class="model.Predavac"/>
+		<mapping class="model.RedovniPredavac"/>
+		<mapping class="model.VanredniPredavac"/>
 
 	</session-factory>
 </hibernate-configuration>

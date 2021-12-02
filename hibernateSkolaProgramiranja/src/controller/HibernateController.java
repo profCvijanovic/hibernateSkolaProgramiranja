@@ -17,10 +17,9 @@ public class HibernateController {
 		
 		CrudDao dao = new CrudDao();
 		
-		//dao.insertPredmet("Osnovi programiranja", 10);
-		//dao.spojiStudentaIsmer(4, 6);
-		//dao.spojiPredmetIsmer(2, 5);
-		//dao.insertSmerDetails(5, "PHP opis", 20, 70000);
+		dao.insertPredavace("Nenad", "Nenadovic", 2, 1);
+		
+		
 		
 
 	}
