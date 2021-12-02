@@ -17,7 +17,7 @@ public class HibernateController {
 		
 		CrudDao dao = new CrudDao();
 		
-		dao.insertPredavace("Nenad", "Nenadovic", 2, 1);
+		dao.insertPredavace("Ana", "Anic", 4, 7);
 		
 		
 		

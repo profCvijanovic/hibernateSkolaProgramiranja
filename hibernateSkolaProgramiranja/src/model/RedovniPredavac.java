@@ -1,10 +1,8 @@
 package model;
 
-import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 @Entity
-@DiscriminatorValue("Redovni")
 public class RedovniPredavac extends Predavac {
 	
 	private int brojNaucnihRadova;
