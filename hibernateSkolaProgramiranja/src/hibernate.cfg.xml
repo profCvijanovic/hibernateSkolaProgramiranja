@@ -35,6 +35,7 @@
 		<mapping class="model.Predavac"/>
 		<mapping class="model.RedovniPredavac"/>
 		<mapping class="model.VanredniPredavac"/>
+		<mapping class="model.User"/>
 
 	</session-factory>
 </hibernate-configuration>

@@ -9,8 +9,8 @@ import model.Adresa;
 import model.Contact;
 import model.Finansije;
 import model.Student;
-
-
+import model.TipUsera;
+import model.User;
 
 public class HibernateController {
 
@@ -33,12 +33,26 @@ public class HibernateController {
 			}
 		}*/
 		
-		List<Double> cene = crud.vratiCeneNaOsnovuPoena(80);
-		System.out.println("Cene u ponudi: ");
-		for(Double cena: cene) {
-			System.out.println(cena);
+		/*
+		 * List<Double> cene = crud.vratiCeneNaOsnovuPoena(80);
+		 * System.out.println("Cene u ponudi: "); for(Double cena: cene) {
+		 * System.out.println(cena); }
+		 */
+		
+		/*
+		 * User user = crud.vratiUsera("aaa", "aaa123");
+		 * 
+		 * if(user != null) { System.out.println("ID:" + user.getIdUser());
+		 * System.out.println("UN:" + user.getUserName()); System.out.println("PASS:" +
+		 * user.getPassword()); System.out.println("TIP:" + user.getTip()); }
+		 */
+		
+		List<String> sviUserNameovi = crud.vratiSveUserNameove();
+		for(String name: sviUserNameovi) {
+			System.out.println(name);
 		}
-
+		
+		
 		
 
 	}
