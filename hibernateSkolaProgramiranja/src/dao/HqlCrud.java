@@ -12,6 +12,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+import model.Adresa;
+import model.Smer;
 import model.Student;
 import model.TipUsera;
 import model.User;
@@ -172,13 +174,5 @@ public class HqlCrud {
 		}
 	
 	}
-	
-	
-	
-	
-	
-	
-	
-	
 	
 }
