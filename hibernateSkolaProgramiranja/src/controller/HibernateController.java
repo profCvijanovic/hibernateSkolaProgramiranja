@@ -14,21 +14,21 @@ import model.Student;
 import model.TipUsera;
 import model.User;
 import slozeniModeli.StudentSmerDetails;
+import slozeniModeli.StudentSmerDetailsHql;
 
 public class HibernateController {
 
 	public static void main(String[] args) {
 		
 		SlozeneHQLmetode crud = new SlozeneHQLmetode();
-		
 		String drzava = "";
 		String finansije = "";
-		String smer = "Basic";
+		String smer = "Java";
 		
-		List<StudentSmerDetails> listaIzBaze = crud.vratiSlozenuTabelu(drzava, finansije, smer);
-		
+		//List<StudentSmerDetails> listaIzBaze = crud.vratiSlozenuTabelu(drzava, finansije, smer);
+		List<StudentSmerDetailsHql> listaIzBaze = crud.vratiSlozenuTabeluHql(drzava, finansije, smer);
 		if(listaIzBaze != null) {
-			for(StudentSmerDetails ssd: listaIzBaze) {
+			for(StudentSmerDetailsHql ssd: listaIzBaze) {
 				System.out.println("Ime: " + ssd.getImeStudenta());
 				System.out.println("Prezime: " + ssd.getPrezimeStudneta());
 				System.out.println("Index: " + ssd.getBrojIndexa());

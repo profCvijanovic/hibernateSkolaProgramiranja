@@ -3,9 +3,11 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -24,7 +26,8 @@ public class Student {
 	private String brojIndexa;
 	@Embedded
 	private Adresa adresa;
-	@Enumerated
+	@Enumerated(EnumType.STRING)
+	@Column(name="enumFinansije")
 	private Finansije finansije;
 	@ElementCollection(fetch = FetchType.LAZY)
 	private List<Contact> contact = new ArrayList<Contact>();
