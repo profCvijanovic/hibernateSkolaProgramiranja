@@ -22,7 +22,7 @@ public class HibernateController {
 		
 		SlozeneHQLmetode crud = new SlozeneHQLmetode();
 		String drzava = "";
-		String finansije = "";
+		String finansije = Finansije.BUDZET.name();
 		String smer = "Java";
 		
 		//List<StudentSmerDetails> listaIzBaze = crud.vratiSlozenuTabelu(drzava, finansije, smer);
